@@ -4,12 +4,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 from sklearn.preprocessing import StandardScaler
 
-# number of folds for the K-fold training algorithm
-K = 10
-
-# percentage of data set for training
-split = 0.75
-
 # csv file loading function
 def load_data(path: str= "path/to/csv/"):
   dataframe = pd.read_csv(f"{path}")
@@ -30,6 +24,12 @@ def create_target_predictors(data: pd.DataFrame= None, target: str= "estimated_s
 
 # machine-learning model algorithm
 def training_algorithm(X: pd.DataFrame= None, y: pd.Series= None):
+  # number of folds for the K-fold training algorithm
+  K = 10
+
+  # percentage of data set for training
+  split = 0.75
+  
   accuracy = []
   for fold in range(0,K):
     # machine-learning model we're going to use to train our data
