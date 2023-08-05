@@ -60,7 +60,7 @@ def training_algorithm(X: pd.DataFrame= None, y: pd.Series= None):
   # finally, print the average standard error
   print(f"AVG MAE: {sum(accuracy)/len(accuracy):.2f}")
 
-def main(path: str= "path/to/csv/"):
-  df = load_data(path)
-  X, y = create_target_predictors(df, target= 'estimated_stock_pct')
-  training_algorithm(X, y)
+def main():
+  df = load_data()
+  X, y = create_target_predictors(df)
+  training_algorithm(X= X, y= y)
